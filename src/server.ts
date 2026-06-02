@@ -15,7 +15,11 @@ app.get("/", (req: Request, res: Response) => {
   });
 });
 app.post("/", (req: Request, res: Response) => {
-  console.log(req.body);
+  const { name, email, password } = req.body;
+  res.status(201).json({
+    message: "data added successfully",
+    data: { name, email, password },
+  });
 });
 
 app.listen(port, () => {
