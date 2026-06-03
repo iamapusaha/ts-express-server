@@ -6,6 +6,7 @@ dotenv.config({
 
 const config = {
   connection_string: process.env.DBCONNECTION as string,
+  port: process.env.PORT,
 };
 
 export default config;
