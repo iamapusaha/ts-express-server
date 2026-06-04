@@ -4,40 +4,20 @@ import express, {
   type Response,
 } from "express";
 import { pool } from "./db";
+import { userRouter } from "./modules/user/user.route";
 
 const app: Application = express();
 
 app.use(express.json());
 app.use(express.text());
 app.use(express.urlencoded());
+app.use("/api/users", userRouter);
 
 app.get("/", (req: Request, res: Response) => {
   res.status(200).json({
     message: "server up to date",
     author: "Apu Saha",
   });
-});
-app.post("/api/users", async (req: Request, res: Response) => {
-  const { name, email, password, age } = req.body;
-  try {
-    const result = await pool.query(
-      `
-    INSERT INTO users(name,email,password,age) VALUES($1,$2,$3,$4)
-      RETURNING *
-    `,
-      [name, email, password, age],
-    );
-    console.log(result);
-    res.status(201).json({
-      message: "data create successfully",
-      data: result.rows[0],
-    });
-  } catch (error: any) {
-    res.status(500).json({
-      message: error.message,
-      error: error,
-    });
-  }
 });
 
 app.get("/api/users", async (req: Request, res: Response) => {
