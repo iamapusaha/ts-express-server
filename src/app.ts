@@ -20,25 +20,6 @@ app.get("/", (req: Request, res: Response) => {
   });
 });
 
-app.get("/api/users", async (req: Request, res: Response) => {
-  try {
-    const result = await pool.query(`
-      SELECT * FROM users
-      `);
-    res.status(200).json({
-      success: true,
-      message: "user retrive successfully",
-      data: result.rows,
-    });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: "error.message",
-      error: error,
-    });
-  }
-});
-
 app.get("/api/users/:id", async (req: Request, res: Response) => {
   const { id } = req.params;
   try {
