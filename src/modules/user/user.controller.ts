@@ -35,9 +35,9 @@ const getAllUsers = async (req: Request, res: Response) => {
 };
 
 const getSingleUser = async (req: Request, res: Response) => {
-  const id = Number(req.params.id);
+  const { id } = req.params;
   try {
-    const result = await UserService.getSingleUserFromDB(id);
+    const result = await UserService.getSingleUserFromDB(id as string);
     if (result.rows.length === 0) {
       res.status(404).json({
         success: false,
@@ -59,10 +59,10 @@ const getSingleUser = async (req: Request, res: Response) => {
 };
 
 const editUserById = async (req: Request, res: Response) => {
-  const id = Number(req.params.id);
+  const { id } = req.params;
 
   try {
-    const result = await UserService.editUserSaveDB(req.body, id);
+    const result = await UserService.editUserSaveDB(req.body, id as string);
     if (result.rows.length === 0) {
       res.status(404).json({
         success: false,
@@ -84,9 +84,9 @@ const editUserById = async (req: Request, res: Response) => {
 };
 
 const deleteUserById = async (req: Request, res: Response) => {
-  const id = Number(req.params.id);
+  const { id } = req.params;
   try {
-    const result = await UserService.deleteUserFromDB(id);
+    const result = await UserService.deleteUserFromDB(id as string);
     console.log(result);
     if (result.rowCount === 0) {
       res.status(404).json({

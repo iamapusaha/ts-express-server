@@ -20,7 +20,7 @@ const getAllUserFromDB = async () => {
   return result;
 };
 
-const getSingleUserFromDB = async (id: number) => {
+const getSingleUserFromDB = async (id: string) => {
   const result = await pool.query(
     `
         SELECT * FROM users WHERE id = $1
@@ -30,7 +30,7 @@ const getSingleUserFromDB = async (id: number) => {
   return result;
 };
 
-const editUserSaveDB = async (payload: IUser, id: number) => {
+const editUserSaveDB = async (payload: IUser, id: string) => {
   const { name, password, age, is_active } = payload;
   const result = await pool.query(
     `
@@ -48,7 +48,7 @@ const editUserSaveDB = async (payload: IUser, id: number) => {
   return result;
 };
 
-const deleteUserFromDB = async (id: number) => {
+const deleteUserFromDB = async (id: string) => {
   const result = await pool.query(
     `
   DELETE FROM users where id =$1
