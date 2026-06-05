@@ -7,4 +7,6 @@ router.post("/", userController.createUser);
 
 router.get("/", userController.getAllUsers);
 
+router.get("/:id", userController.getSingleUser);
+
 export const userRouter = router;
