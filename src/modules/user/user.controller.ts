@@ -57,8 +57,34 @@ const getSingleUser = async (req: Request, res: Response) => {
     });
   }
 };
+
+const editUserById = async (req: Request, res: Response) => {
+  const id = Number(req.params.id);
+
+  try {
+    const result = await UserService.editUserSaveDB(req.body, id);
+    if (result.rows.length === 0) {
+      res.status(404).json({
+        success: false,
+        message: "user data not found",
+      });
+    }
+    res.status(200).json({
+      success: true,
+      message: "user update successfully",
+      data: result.rows[0],
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "error.message",
+      error: error,
+    });
+  }
+};
 export const userController = {
   createUser,
   getAllUsers,
   getSingleUser,
+  editUserById,
 };
