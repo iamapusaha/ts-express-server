@@ -3,6 +3,7 @@ import express, {
   type Request,
   type Response,
 } from "express";
+import { profileRouter } from "./modules/profile/profile.router";
 import { userRouter } from "./modules/user/user.route";
 
 const app: Application = express();
@@ -11,6 +12,7 @@ app.use(express.json());
 app.use(express.text());
 app.use(express.urlencoded());
 app.use("/api/users", userRouter);
+app.use("/api/profile", profileRouter);
 
 app.get("/", (req: Request, res: Response) => {
   res.status(200).json({
