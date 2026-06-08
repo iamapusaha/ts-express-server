@@ -3,6 +3,7 @@ import express, {
   type Request,
   type Response,
 } from "express";
+import auth from "./middleware/auth";
 import logger from "./middleware/logger";
 import { authRouter } from "./modules/auth/auth.route";
 import { profileRouter } from "./modules/profile/profile.router";
@@ -14,7 +15,7 @@ app.use(express.json());
 app.use(express.text());
 app.use(express.urlencoded());
 app.use(logger);
-app.use("/api/users", userRouter);
+app.use("/api/users", auth, userRouter);
 app.use("/api/profile", profileRouter);
 app.use("/api/auth", authRouter);
 

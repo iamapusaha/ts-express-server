@@ -8,3 +8,37 @@ Method -> GET - Time -> 1780926522388 - URL -> /
 Method -> GET - Time -> 1780926522553 - URL -> /favicon.ico
 
 Method -> GET - Time -> 1780926617850 - URL -> /api/users
+
+Method -> GET - Time -> 1780928358626 - URL -> /api/users
+
+Method -> GET - Time -> 1780928379468 - URL -> /api/users
+
+Method -> GET - Time -> 1780928422976 - URL -> /api/users
+
+Method -> GET - Time -> 1780928462417 - URL -> /api/users
+
+Method -> GET - Time -> 1780928499697 - URL -> /api/users
+
+Method -> POST - Time -> 1780929455155 - URL -> /api/users/
+
+Method -> POST - Time -> 1780929473646 - URL -> /api/users/
+
+Method -> POST - Time -> 1780929486380 - URL -> /api/auth/login
+
+Method -> GET - Time -> 1780929577810 - URL -> /api/users
+
+Method -> GET - Time -> 1780929625115 - URL -> /api/users
+
+Method -> GET - Time -> 1780929664889 - URL -> /api/users
+
+Method -> GET - Time -> 1780929863646 - URL -> /api/users
+
+Method -> GET - Time -> 1780929881288 - URL -> /api/users
+
+Method -> GET - Time -> 1780929897540 - URL -> /api/users/15
+
+Method -> GET - Time -> 1780929904504 - URL -> /api/users/1
+
+Method -> GET - Time -> 1780930025670 - URL -> /api/users
+
+Method -> GET - Time -> 1780930047544 - URL -> /api/users/1
