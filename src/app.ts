@@ -3,6 +3,7 @@ import express, {
   type Request,
   type Response,
 } from "express";
+import { authRouter } from "./modules/auth/auth.route";
 import { profileRouter } from "./modules/profile/profile.router";
 import { userRouter } from "./modules/user/user.route";
 
@@ -13,6 +14,7 @@ app.use(express.text());
 app.use(express.urlencoded());
 app.use("/api/users", userRouter);
 app.use("/api/profile", profileRouter);
+app.use("/api/auth", authRouter);
 
 app.get("/", (req: Request, res: Response) => {
   res.status(200).json({
