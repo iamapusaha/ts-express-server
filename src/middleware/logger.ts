@@ -3,9 +3,7 @@ import fs from "fs";
 
 const logger = (req: Request, res: Response, next: NextFunction) => {
   const log = `\nMethod -> ${req.method} - Time -> ${Date.now()} - URL -> ${req.url}\n`;
-  fs.appendFile("longer.txt", log, (err) => {
-    console.log(err);
-  });
+  fs.appendFile("longer.txt", log, (err) => {});
   next();
 };
 export default logger;

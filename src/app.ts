@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.text());
 app.use(express.urlencoded());
 app.use(logger);
-app.use("/api/users", auth, userRouter);
+app.use("/api/users", auth(), userRouter);
 app.use("/api/profile", profileRouter);
 app.use("/api/auth", authRouter);
 

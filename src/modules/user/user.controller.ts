@@ -18,6 +18,7 @@ const createUser = async (req: Request, res: Response) => {
 };
 
 const getAllUsers = async (req: Request, res: Response) => {
+  console.log(req.user);
   try {
     const result = await UserService.getAllUserFromDB();
     res.status(200).json({
